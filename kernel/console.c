@@ -155,6 +155,10 @@ consoleintr(int c)
       consputc(BACKSPACE);
     }
     break;
+  case 12:
+    // clear screen
+    printf("\x1b[2J\x1b[H$ ");
+    break;
   default:
     if(c != 0 && cons.e-cons.r < INPUT_BUF_SIZE){
       c = (c == '\r') ? '\n' : c;
